@@ -18,12 +18,12 @@ form {
 }
 
 form img {
-    width: 100%; /* Use 100% to make the image responsive within the container */
-    max-width: 100px; /* Adjust max-width as needed */
-    height: auto; /* Maintain the aspect ratio */
-    margin: 0 auto; /* Center the image horizontally using auto margins */
-    display: block; /* Ensure the image is treated as a block element */
-    margin-bottom: 20px; /* Adjust margin-bottom for spacing */
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
 }
 
 h2 {
