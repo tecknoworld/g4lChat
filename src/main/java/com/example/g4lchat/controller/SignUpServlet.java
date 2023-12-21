@@ -22,7 +22,8 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        // Initialize Hibernate SessionFactory with explicit configuration file location
+        // Initialize Hibernate SessionFactory
+
         Configuration configuration = new Configuration().configure("com/example/g4lchat/hibernate.cfg.xml");
         sessionFactory = configuration.buildSessionFactory();
     }
@@ -36,7 +37,7 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // Retrieve form data
+        // R f d
         String phoneNumber = req.getParameter("number");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
@@ -49,14 +50,14 @@ public class SignUpServlet extends HttpServlet {
         System.out.println("Confirm Password: " + confirmPassword);
         System.out.println("Username: " + username);
 
-        // Create a User object
+
         User user = new User();
         user.setPhone(Integer.parseInt(phoneNumber));
         user.setEmail(email);
         user.setPassword(password);
         user.setUsername(username);
 
-        // Save the User using Hibernate
+
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
             session.persist(user);
@@ -69,7 +70,7 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        // Close the Hibernate SessionFactory when the application is shutting down
+
         if (sessionFactory != null) {
             sessionFactory.close();
         }
