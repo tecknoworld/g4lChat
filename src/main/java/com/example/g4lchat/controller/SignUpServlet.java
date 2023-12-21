@@ -1,4 +1,4 @@
-package com.example.g4lchat;
+package com.example.g4lchat.controller;
 
 import java.io.*;
 
@@ -22,7 +22,7 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        // Initialize Hibernate SessionFactory
+        // Initialize H SF
 
         Configuration configuration = new Configuration().configure("com/example/g4lchat/hibernate.cfg.xml");
         sessionFactory = configuration.buildSessionFactory();
@@ -37,18 +37,14 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // R f d
+
         String phoneNumber = req.getParameter("number");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
         String username = req.getParameter("username");
 
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Email: " + email);
-        System.out.println("Password: " + password);
-        System.out.println("Confirm Password: " + confirmPassword);
-        System.out.println("Username: " + username);
+
 
 
         User user = new User();
